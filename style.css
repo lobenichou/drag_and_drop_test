@@ -1,0 +1,23 @@
+.false, .true{
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin-left: 300px;
+  border-radius: 50px;
+}
+
+.false{
+  background-color: red;
+}
+
+.true{
+  background-color: blue;
+}
+
+.candy{
+  clear: both;
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  border-radius: 50px;
+  }

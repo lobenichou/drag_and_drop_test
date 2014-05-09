@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div data-status="false" class="false">
+  </div>
+
+  <div data-status="true" class="true">
+  </div>
+
+  <div data-lead="false" class="candy">
+    2
+  </div>
+
+  <div data-lead="true" class="candy">
+    1
+  </div>
+
+  <div class="answer">
+  </div>
+
+  <script>
+  $(drag);
+    function drag(){
+      $(".candy").draggable({
+        revert: 'invalid',
+        stop: function(){
+          $(this).draggable('option','revert','invalid');
+        }
+        })
+
+      $(".false").droppable({
+        drop: handleDrop
+      })
+
+      $(".true").droppable({
+         drop: handleDrop
+      })
+
+      function handleDrop(event, ui){
+        var lead_status = $(this).data().status
+        var candy_status = ui.draggable.data().lead
+        console.log (lead_status, candy_status)
+        if (lead_status == candy_status ){
+          $(".answer").html("Right! Answer")
+        }else if (lead_status != candy_status ){
+          ui.draggable.draggable('option','revert',true);
+          $(".answer").html("Wrong!")
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
